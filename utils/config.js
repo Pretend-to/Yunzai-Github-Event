@@ -1,14 +1,10 @@
 import fs from 'fs'
 import yaml from 'js-yaml'
 import path from 'path'
-import { fileURLToPath } from 'url'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
 
 // Load YAML config file
 function loadYamlConfig (filename) {
-  const configPath = path.join(__dirname, '../config', filename)
+  const configPath = path.join(process.cwd(), 'plugins/github/config', filename)
   try {
     const fileContents = fs.readFileSync(configPath, 'utf8')
     return yaml.load(fileContents)
