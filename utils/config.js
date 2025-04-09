@@ -1,5 +1,5 @@
 import fs from 'fs'
-import yaml from 'js-yaml'
+import yaml from 'yaml'
 import path from 'path'
 
 // Load YAML config file
@@ -7,7 +7,7 @@ function loadYamlConfig (filename) {
   const configPath = path.join(process.cwd(), 'plugins/github/config', filename)
   try {
     const fileContents = fs.readFileSync(configPath, 'utf8')
-    return yaml.load(fileContents)
+    return yaml.parse(fileContents)
   } catch (error) {
     logger.error(`Error loading config file ${filename}: ${error}`)
     throw new Error(`Failed to load configuration file: ${filename}`)
