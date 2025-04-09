@@ -1,7 +1,7 @@
 import http from 'http'
 import crypto from 'crypto'
 import { loadConfig } from './utils/config.js'
-import { handleEvent } from './utils/eventHandler.js'
+import { handleEvent } from './utils/eventhandler.js'
 
 // Load configuration
 const config = loadConfig()
@@ -40,7 +40,7 @@ const server = http.createServer((req, res) => {
   }
 })
 
-function verifySignature(signature, payload, secret) {
+function verifySignature (signature, payload, secret) {
   try {
     const hmac = crypto.createHmac('sha1', secret)
     const digest = Buffer.from(`sha1=${hmac.update(payload).digest('hex')}`, 'utf8')
@@ -58,4 +58,8 @@ function verifySignature(signature, payload, secret) {
 
 server.listen(config.server.port, () => {
   logger.mark(`GitHub webhook server listening on port ${config.server.port}`)
+})
+
+server.on('error', (e) => {
+  console.error(e)
 })
