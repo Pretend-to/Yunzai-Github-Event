@@ -1,0 +1,327 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    color: #24292e;
+    background-color: #f6f8fa;
+}
+
+.container {
+    width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+/* Header Section */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #eaecef;
+    margin-bottom: 16px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.github-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.header-title {
+    display: flex;
+    align-items: baseline;
+}
+
+.event-type {
+    font-weight: 600;
+    font-size: 18px;
+    color: #24292e;
+    margin-right: 8px;
+}
+
+.event-count {
+    font-size: 18px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    background-color: #cf222e;
+    color: white;
+}
+
+.timestamp {
+    font-size: 14px;
+    color: #586069;
+}
+
+/* Repository Information */
+.repo-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 16px;
+    background-color: #f6f8fa;
+    border-radius: 8px;
+}
+
+.repo-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+    margin-right: 16px;
+}
+
+.repo-details {
+    flex: 1;
+}
+
+.repo-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #0366d6;
+    margin-bottom: 4px;
+}
+
+.repo-description {
+    font-size: 14px;
+    color: #586069;
+}
+
+/* Alerts Summary */
+.alerts-summary {
+    margin-bottom: 20px;
+    padding: 16px;
+    background-color: white;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+}
+
+.summary-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #24292e;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.summary-stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.stat-item {
+    flex: 1;
+    text-align: center;
+    padding: 12px 8px;
+    border-radius: 6px;
+}
+
+.stat-item.critical {
+    background-color: rgba(207, 34, 46, 0.1);
+    color: #cf222e;
+}
+
+.stat-item.high {
+    background-color: rgba(215, 58, 73, 0.1);
+    color: #d73a49;
+}
+
+.stat-item.moderate {
+    background-color: rgba(249, 197, 19, 0.1);
+    color: #b08800;
+}
+
+.stat-item.low {
+    background-color: rgba(3, 102, 214, 0.1);
+    color: #0366d6;
+}
+
+.stat-number {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    font-size: 14px;
+}
+
+/* Alerts List */
+.alerts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.alert-item {
+    padding: 16px;
+    border-radius: 6px;
+    background-color: #fff;
+    border: 1px solid #e1e4e8;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    border-left: 4px solid;
+}
+
+.alert-item.critical {
+    border-left-color: #cf222e;
+}
+
+.alert-item.high {
+    border-left-color: #d73a49;
+}
+
+.alert-item.moderate {
+    border-left-color: #f9c513;
+}
+
+.alert-item.low {
+    border-left-color: #0366d6;
+}
+
+.alert-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.alert-icon {
+    margin-right: 8px;
+}
+
+.alert-item.critical .alert-icon {
+    fill: #cf222e;
+}
+
+.alert-item.high .alert-icon {
+    fill: #d73a49;
+}
+
+.alert-item.moderate .alert-icon {
+    fill: #f9c513;
+}
+
+.alert-item.low .alert-icon {
+    fill: #0366d6;
+}
+
+.alert-title-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.alert-type {
+    font-size: 16px;
+    font-weight: 600;
+    color: #24292e;
+}
+
+.severity-badge {
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: white;
+}
+
+.severity-badge.critical {
+    background-color: #cf222e;
+}
+
+.severity-badge.high {
+    background-color: #d73a49;
+}
+
+.severity-badge.moderate {
+    background-color: #f9c513;
+    color: #24292e;
+}
+
+.severity-badge.low {
+    background-color: #0366d6;
+}
+
+.alert-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 12px;
+    padding: 8px;
+    background-color: #f6f8fa;
+    border-radius: 4px;
+}
+
+.detail-row {
+    display: flex;
+    align-items: center;
+}
+
+.detail-label {
+    font-weight: 600;
+    margin-right: 4px;
+    color: #24292e;
+}
+
+.detail-value {
+    color: #586069;
+    word-break: break-all;
+}
+
+.alert-description {
+    font-size: 14px;
+    margin-bottom: 12px;
+    color: #586069;
+    padding: 8px;
+    background-color: #fff;
+    border: 1px solid #eaecef;
+    border-radius: 4px;
+}
+
+.alert-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.view-alert {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #cf222e;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.view-alert:hover {
+    background-color: #a0191f;
+}
+
+/* Footer */
+.footer {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid #eaecef;
+    text-align: center;
+}
+
+.footer-text {
+    font-size: 14px;
+    color: #6a737d;
+}

@@ -5,9 +5,7 @@ github event plugin for Yunzai
 
 使yunzai机器人能够接收到**自己**仓库的更新。基于github的webhook
 
-应该很少有人用的上吧？就不写README咯。
-
-Just Kidding！😂
+参考config目录下的config.example.yaml和repos.example.yaml，将config.example.yaml重命名为config.yaml，将repos.example.yaml重命名为repos.yaml，然后在repos.yaml中添加自己仓库的id和token，token是github仓库的settings->webhooks->add webhook->secret
 
 ```
 git clone https://github.com/ikechan8370/Yunzai-Github-Event.git .\plugins\github

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="{{pluResPath}}github/grouped/issues/index.css" />
+    <link rel="shortcut icon" href="#" />
+</head>
+{{@headStyle}}
+
+<body>
+<div class="container" id="container">
+    <div class="header">
+        <div class="header-left">
+            <img class="github-icon" src="{{pluResPath}}img/icon/github.png"/>
+            <div class="header-title">
+                <div class="event-type">GitHub Issues</div>
+                <div class="event-count">{{count}} updates</div>
+            </div>
+        </div>
+        <div class="timestamp">{{time}}</div>
+    </div>
+
+    <div class="repo-info">
+        <img class="repo-avatar" src="{{events[0].repoAvatar}}" />
+        <div class="repo-details">
+            <div class="repo-name">{{repoName}}</div>
+            <div class="repo-description">{{events[0].description}}</div>
+        </div>
+    </div>
+
+    <div class="issues-list">
+        {{each events event}}
+        <div class="issue-item">
+            <div class="issue-header">
+                <svg class="issue-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+                    <path d="M8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
+                    <path fill-rule="evenodd" d="M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z"></path>
+                </svg>
+                <a href="{{event.issueUrl}}" class="issue-link">{{event.title}}</a>
+                <span class="action-badge {{event.action}}">{{event.action}}</span>
+            </div>
+            <div class="issue-meta">
+                <img class="user-avatar" src="{{event.userAvatar}}" />
+                <span class="username">@{{event.user}}</span>
+            </div>
+            {{ if event.action === 'opened' }}
+            <div class="issue-snippet">
+                {{event.body.substring(0, 100)}}{{event.body.length > 100 ? '...' : ''}}
+            </div>
+            {{/if}}
+        </div>
+        {{/each}}
+    </div>
+
+    <div class="footer">
+        <div class="footer-text">Created by Yunzai-Bot and GitHub-Plugin</div>
+    </div>
+</div>
+</body>
+</html>

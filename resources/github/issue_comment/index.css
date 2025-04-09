@@ -58,9 +58,8 @@ body {
     font-size: 18px;
     padding: 2px 8px;
     border-radius: 20px;
-    background-color: #0366d6;
+    background-color: #1a7f37;
     color: white;
-    text-transform: capitalize;
 }
 
 .timestamp {
@@ -101,95 +100,92 @@ body {
     color: #586069;
 }
 
-/* Push Card */
-.push-card {
+/* Comment Card */
+.comment-card {
     padding: 16px;
     border: 1px solid #e1e4e8;
     border-radius: 6px;
     margin-bottom: 20px;
 }
 
-.pusher-info {
+.issue-title {
     display: flex;
     align-items: center;
-    padding-bottom: 16px;
-    border-bottom: 1px solid #eaecef;
     margin-bottom: 16px;
-}
-
-.pusher-icon {
-    margin-right: 8px;
-    fill: #0366d6;
-}
-
-.pusher-name {
+    font-size: 16px;
     font-weight: 600;
+}
+
+.issue-icon {
+    margin-right: 8px;
+    fill: #28a745;
+}
+
+.issue-link {
     color: #0366d6;
-    margin-right: 6px;
+    text-decoration: none;
 }
 
-.pusher-action {
-    color: #586069;
+.issue-link:hover {
+    text-decoration: underline;
 }
 
-.commits-container {
+.comment-container {
     background-color: #f6f8fa;
     border: 1px solid #eaecef;
     border-radius: 6px;
     overflow: hidden;
 }
 
-.commits-header {
+.comment-header {
     display: flex;
     align-items: center;
-    padding: 8px 16px;
-    background-color: #f1f8ff;
-    border-bottom: 1px solid #eaecef;
-}
-
-.commit-icon {
-    margin-right: 6px;
-    fill: #0366d6;
-}
-
-.commits-title {
-    font-weight: 600;
-    color: #24292e;
-}
-
-.commits-list {
-    list-style-type: none;
-}
-
-.commit-item {
     padding: 12px 16px;
-    border-bottom: 1px solid #eaecef;
+    background-color: #f1f8ff;
+    border-bottom: 1px solid #d1d5da;
 }
 
-.commit-item:last-child {
-    border-bottom: none;
+.user-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    margin-right: 8px;
 }
 
-.commit-details {
+.comment-metadata {
+    flex: 1;
     display: flex;
-    flex-direction: column;
+    align-items: center;
 }
 
-.commit-message {
+.username {
     font-weight: 600;
-    color: #24292e;
-    margin-bottom: 4px;
+    color: #0366d6;
+    margin-right: 6px;
+}
+
+.comment-action {
+    color: #586069;
+    margin-right: 6px;
+}
+
+.comment-link {
+    color: #586069;
+    display: flex;
+    align-items: center;
+}
+
+.link-icon {
+    fill: currentColor;
+}
+
+.comment-body {
+    padding: 16px;
+    font-size: 14px;
+    line-height: 1.6;
     overflow-wrap: break-word;
     word-break: break-word;
-}
-
-.commit-author {
-    font-size: 12px;
-    color: #586069;
-}
-
-.author-name {
-    color: #0366d6;
+    white-space: pre-wrap;
 }
 
 /* Footer */

@@ -1,0 +1,24 @@
+# Server Configuration
+server:
+  port: 59009
+  webhook_path: "/github-webhook"
+
+# GitHub Webhook Secret
+webhook_secret: ""
+
+# Global Settings
+settings:
+  send_to_master: true
+  default_groups: [559567232]
+
+# Event Types to Listen
+# Set to true to enable, false to disable
+event_types:
+  issues: true
+  pull_request: true
+  push: true
+  issue_comment: true
+  star: true
+  # Add more event types as needed
+  # release: false
+  # fork: false

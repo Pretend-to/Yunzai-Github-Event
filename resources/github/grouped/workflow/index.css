@@ -54,13 +54,12 @@ body {
     margin-right: 8px;
 }
 
-.event-action {
+.event-count {
     font-size: 18px;
     padding: 2px 8px;
     border-radius: 20px;
-    background-color: #0366d6;
+    background-color: #2da44e;
     color: white;
-    text-transform: capitalize;
 }
 
 .timestamp {
@@ -101,95 +100,137 @@ body {
     color: #586069;
 }
 
-/* Push Card */
-.push-card {
+/* Workflows List */
+.workflows-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.workflow-item {
     padding: 16px;
     border: 1px solid #e1e4e8;
     border-radius: 6px;
-    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
-.pusher-info {
+.workflow-status {
     display: flex;
     align-items: center;
-    padding-bottom: 16px;
-    border-bottom: 1px solid #eaecef;
-    margin-bottom: 16px;
-}
-
-.pusher-icon {
-    margin-right: 8px;
-    fill: #0366d6;
-}
-
-.pusher-name {
-    font-weight: 600;
-    color: #0366d6;
-    margin-right: 6px;
-}
-
-.pusher-action {
-    color: #586069;
-}
-
-.commits-container {
-    background-color: #f6f8fa;
-    border: 1px solid #eaecef;
+    padding: 10px;
     border-radius: 6px;
-    overflow: hidden;
+    margin-bottom: 12px;
 }
 
-.commits-header {
-    display: flex;
-    align-items: center;
-    padding: 8px 16px;
-    background-color: #f1f8ff;
-    border-bottom: 1px solid #eaecef;
+.workflow-status.success {
+    background-color: #dcffe4;
+    color: #1a7f37;
 }
 
-.commit-icon {
-    margin-right: 6px;
-    fill: #0366d6;
+.workflow-status.failure {
+    background-color: #ffebe9;
+    color: #cf222e;
 }
 
-.commits-title {
+.workflow-status.cancelled,
+.workflow-status.skipped,
+.workflow-status.pending {
+    background-color: #eaeef2;
+    color: #57606a;
+}
+
+.status-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    fill: currentColor;
+}
+
+.workflow-name {
+    font-size: 15px;
     font-weight: 600;
-    color: #24292e;
+    margin-right: auto;
 }
 
-.commits-list {
-    list-style-type: none;
-}
-
-.commit-item {
-    padding: 12px 16px;
-    border-bottom: 1px solid #eaecef;
-}
-
-.commit-item:last-child {
-    border-bottom: none;
-}
-
-.commit-details {
-    display: flex;
-    flex-direction: column;
-}
-
-.commit-message {
-    font-weight: 600;
-    color: #24292e;
-    margin-bottom: 4px;
-    overflow-wrap: break-word;
-    word-break: break-word;
-}
-
-.commit-author {
+.status-badge {
+    display: inline-block;
+    padding: 3px 6px;
+    border-radius: 12px;
+    text-transform: capitalize;
+    font-weight: 500;
     font-size: 12px;
+}
+
+.status-badge.success {
+    background-color: #2da44e;
+    color: white;
+}
+
+.status-badge.failure {
+    background-color: #cf222e;
+    color: white;
+}
+
+.status-badge.cancelled,
+.status-badge.skipped {
+    background-color: #6e7781;
+    color: white;
+}
+
+.status-badge.pending {
+    background-color: #bf8700;
+    color: white;
+}
+
+/* Workflow Details */
+.workflow-details {
+    margin-bottom: 12px;
+    padding: 12px;
+    background-color: #f6f8fa;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.detail-row {
+    display: flex;
+    margin-bottom: 6px;
+}
+
+.detail-row:last-child {
+    margin-bottom: 0;
+}
+
+.detail-label {
+    width: 60px;
+    font-weight: 600;
+    color: #24292e;
+}
+
+.detail-value {
+    flex: 1;
     color: #586069;
 }
 
-.author-name {
-    color: #0366d6;
+.workflow-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.view-workflow {
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #2da44e;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.view-workflow:hover {
+    background-color: #2c974b;
 }
 
 /* Footer */

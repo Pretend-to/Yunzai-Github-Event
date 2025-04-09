@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="{{pluResPath}}github/pr/index.css" />
@@ -10,41 +9,83 @@
 
 <body>
 <div class="container" id="container">
-    <div class="head_box">
-        <div class="id_text">Github-Plugin</div>
-        <h2 class="day_text">Pull Request 通知 {{time}}</h2>
-        <img class="github" src="{{pluResPath}}img/icon/github.png"/>
-    </div>
-    <div class="general">
-        <div>
-            <img class="repoIcon" src="{{repoAvatar}}" />
+    <div class="header">
+        <div class="header-left">
+            <img class="github-icon" src="{{pluResPath}}img/icon/github.png"/>
+            <div class="header-title">
+                <div class="event-type">GitHub Pull Request</div>
+                <div class="event-action">{{action}}</div>
+            </div>
         </div>
-        <div>
-            <h3>{{repoName}}</h3>
-            <h5>{{description}}</h5>
+        <div class="timestamp">{{time}}</div>
+    </div>
+
+    <div class="repo-info">
+        <img class="repo-avatar" src="{{repoAvatar}}" />
+        <div class="repo-details">
+            <div class="repo-name">{{repoName}}</div>
+            <div class="repo-description">{{description}}</div>
         </div>
     </div>
 
-    <div class="pr-content">
-        <div class="pr-header">
-            Pull Request 内容
-        </div>
+    <div class="pr-card">
         <div class="pr-title">
-            标题：{{title}} ({{prUrl}})
+            <svg class="pr-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+                <path fill-rule="evenodd" d="M7.177 3.073L9.573.677A.25.25 0 0110 .854v4.792a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zM11 2.5h-1V4h1a1 1 0 011 1v5.628a2.251 2.251 0 101.5 0V5A2.5 2.5 0 0011 2.5zm1 10.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0zM3.75 12a.75.75 0 100 1.5.75.75 0 000-1.5z"></path>
+            </svg>
+            <a href="{{prUrl}}" class="pr-link">{{title}}</a>
         </div>
-        <div class="pr-author">
-            发起者：@{{user}} <img src="{{userAvatar}}" style="width: 16px">
+
+        <div class="user-info">
+            <img class="user-avatar" src="{{userAvatar}}" />
+            <span class="username">@{{user}}</span>
+            <span class="action-text">{{action}} this pull request</span>
         </div>
+
         <div class="pr-body">
-            内容：{{body}}
+            {{body}}
         </div>
-        <div class="pr-action">
-            {{ merged }}
+
+        {{ if merged}}
+        <div class="pr-merged">
+            <svg class="merged-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+                <path fill-rule="evenodd" d="M5 3.254V3.25v.005a.75.75 0 110-.005v.004zm.45 1.9a2.25 2.25 0 10-1.95.218v5.256a2.25 2.25 0 101.5 0V7.123A5.735 5.735 0 009.25 9h1.378a2.251 2.251 0 100-1.5H9.25a4.25 4.25 0 01-3.8-2.346zM12.75 9a.75.75 0 100-1.5.75.75 0 000 1.5zm-8.5 4.5a.75.75 0 100-1.5.75.75 0 000 1.5z"></path>
+            </svg>
+            <span>{{merged}}</span>
+        </div>
+        {{/if}}
+
+        <div class="pr-timeline">
+            {{ if created_at}}
+            <div class="timeline-item">
+                <svg class="timeline-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm9 3a1 1 0 11-2 0 1 1 0 012 0zm-.25-6.25a.75.75 0 00-1.5 0v3.5a.75.75 0 001.5 0v-3.5z"></path>
+                </svg>
+                <span>Created: {{created_at}}</span>
+            </div>
+            {{/if}}
+            {{ if updated_at}}
+            <div class="timeline-item">
+                <svg class="timeline-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M1.643 3.143L.427 1.927A.25.25 0 000 2.104V5.75c0 .138.112.25.25.25h3.646a.25.25 0 00.177-.427L2.715 4.215a6.5 6.5 0 11-1.18 4.458.75.75 0 10-1.493.154 8.001 8.001 0 101.6-5.684zM7.75 4a.75.75 0 01.75.75v2.992l2.028.812a.75.75 0 01-.557 1.392l-2.5-1A.75.75 0 017 8.25v-3.5A.75.75 0 017.75 4z"></path>
+                </svg>
+                <span>Updated: {{updated_at}}</span>
+            </div>
+            {{/if}}
+            {{ if closed_at}}
+            <div class="timeline-item">
+                <svg class="timeline-icon closed" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0zM8 0a8 8 0 100 16A8 8 0 008 0zm3.28 5.28a.75.75 0 00-1.06-1.06l-5.5 5.5a.75.75 0 101.06 1.06l5.5-5.5z"></path>
+                </svg>
+                <span>Closed: {{closed_at}}</span>
+            </div>
+            {{/if}}
         </div>
     </div>
 
-    <div class="logo">Created By Yunzai-Bot and Github-Plugin</div>
+    <div class="footer">
+        <div class="footer-text">Created by Yunzai-Bot and GitHub-Plugin</div>
+    </div>
 </div>
 </body>
-
 </html>

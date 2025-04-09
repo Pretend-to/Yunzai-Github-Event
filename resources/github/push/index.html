@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="{{pluResPath}}github/push/index.css" />
@@ -10,29 +9,58 @@
 
 <body>
 <div class="container" id="container">
-    <div class="head_box">
-        <div class="id_text">Github-Plugin</div>
-        <h2 class="day_text">推送通知 {{time}} by {{pusherName}}</h2>
-        <img class="github" src="{{pluResPath}}img/icon/github.png"/>
-    </div>
-    <div class="general">
-        <div>
-            <img class="repoIcon" src="{{repoAvatar}}" />
+    <div class="header">
+        <div class="header-left">
+            <img class="github-icon" src="{{pluResPath}}img/icon/github.png"/>
+            <div class="header-title">
+                <div class="event-type">GitHub Push</div>
+                <div class="event-action">new commits</div>
+            </div>
         </div>
-        <div>
-            <h3>{{repoName}}</h3>
-            <h5>{{description}}</h5>
-        </div>
+        <div class="timestamp">{{time}}</div>
     </div>
-    {{each commits commit}}
-    <div class="commits">
-        <div class="commit">
-            * {{commit.author}}: {{commit.message}}
+
+    <div class="repo-info">
+        <img class="repo-avatar" src="{{repoAvatar}}" />
+        <div class="repo-details">
+            <div class="repo-name">{{repoName}}</div>
+            <div class="repo-description">{{description}}</div>
         </div>
     </div>
-    {{/each}}
-    <div class="logo">Created By Yunzai-Bot and Github-Plugin</div>
+
+    <div class="push-card">
+        <div class="pusher-info">
+            <svg class="pusher-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+                <path fill-rule="evenodd" d="M10.5 5a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0zm.061 3.073a4 4 0 10-5.123 0 6.004 6.004 0 00-3.431 5.142.75.75 0 001.498.07 4.5 4.5 0 018.99 0 .75.75 0 101.498-.07 6.005 6.005 0 00-3.432-5.142z"></path>
+            </svg>
+            <span class="pusher-name">{{pusherName}}</span>
+            <span class="pusher-action">pushed to repository</span>
+        </div>
+
+        <div class="commits-container">
+            <div class="commits-header">
+                <svg class="commit-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M1.643 3.143L.427 1.927A.25.25 0 000 2.104V5.75c0 .138.112.25.25.25h3.646a.25.25 0 00.177-.427L2.715 4.215a6.5 6.5 0 11-1.18 4.458.75.75 0 10-1.493.154 8.001 8.001 0 101.6-5.684zM10.5 7.75a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0zm1.5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                </svg>
+                <span class="commits-title">Commits ({{commits.length}})</span>
+            </div>
+
+            <ul class="commits-list">
+                {{each commits commit}}
+                <li class="commit-item">
+                    <div class="commit-details">
+                        <div class="commit-message">{{commit.message}}</div>
+                        <div class="commit-author">by <span class="author-name">{{commit.author}}</span></div>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-text">Created by Yunzai-Bot and GitHub-Plugin</div>
+    </div>
 </div>
 </body>
-
 </html>

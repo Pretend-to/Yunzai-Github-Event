@@ -1,0 +1,11 @@
+# Repository Configuration
+# Format:
+# - name: owner/repo
+#   groups: [group1, group2]
+#   events: [event1, event2] # Optional, if not specified, use global event_types
+
+repositories:
+  - name: "ikechan8370/chatgpt-plugin"
+    groups: [559567232]
+    events: ["issues", "pull_request", "push", "issue_comment", "star"] # Optional
+

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="{{pluResPath}}github/grouped/security/index.css" />
+    <link rel="shortcut icon" href="#" />
+</head>
+{{@headStyle}}
+
+<body>
+<div class="container" id="container">
+    <div class="header">
+        <div class="header-left">
+            <img class="github-icon" src="{{pluResPath}}img/icon/github.png"/>
+            <div class="header-title">
+                <div class="event-type">GitHub Security Alerts</div>
+                <div class="event-count">{{count}} new alerts</div>
+            </div>
+        </div>
+        <div class="timestamp">{{time}}</div>
+    </div>
+
+    <div class="repo-info">
+        <img class="repo-avatar" src="{{events[0].repoAvatar}}" />
+        <div class="repo-details">
+            <div class="repo-name">{{repoName}}</div>
+            <div class="repo-description">{{events[0].description}}</div>
+        </div>
+    </div>
+
+    <div class="alerts-summary">
+        <div class="summary-title">Security Alert Summary</div>
+        <div class="summary-stats">
+            <div class="stat-item critical">
+                <div class="stat-number">{{criticalCount}}</div>
+                <div class="stat-label">Critical</div>
+            </div>
+            <div class="stat-item high">
+                <div class="stat-number">{{highCount}}</div>
+                <div class="stat-label">High</div>
+            </div>
+            <div class="stat-item moderate">
+                <div class="stat-number">{{moderateCount}}</div>
+                <div class="stat-label">Moderate</div>
+            </div>
+            <div class="stat-item low">
+                <div class="stat-number">{{lowCount}}</div>
+                <div class="stat-label">Low</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="alerts-list">
+        {{each events event}}
+        <div class="alert-item {{event.alert_level}}">
+            <div class="alert-header">
+                <svg class="alert-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path>
+                </svg>
+                <div class="alert-title-group">
+                    <div class="alert-type">{{event.alertType}}</div>
+                    <div class="severity-badge {{event.alert_level}}">{{event.severity}}</div>
+                </div>
+            </div>
+
+            <div class="alert-details">
+                <div class="detail-row">
+                    <div class="detail-label">Package:</div>
+                    <div class="detail-value">{{event.package}}</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Vulnerable:</div>
+                    <div class="detail-value">{{event.vulnerableVersion}}</div>
+                </div>
+            </div>
+
+            <div class="alert-description">
+                {{event.description.substring(0, 100)}}{{event.description.length > 100 ? '...' : ''}}
+            </div>
+
+            <div class="alert-footer">
+                <a href="{{event.url}}" class="view-alert">View Details</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+    <div class="footer">
+        <div class="footer-text">Created by Yunzai-Bot and GitHub-Plugin</div>
+    </div>
+</div>
+</body>
+</html>

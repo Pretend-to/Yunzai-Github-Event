@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="{{pluResPath}}github/issues/index.css" />
@@ -10,39 +9,57 @@
 
 <body>
 <div class="container" id="container">
-    <div class="head_box">
-        <div class="id_text">Github-Plugin</div>
-        <h2 class="day_text">Issues {{action}} 通知 {{time}}</h2>
-        <img class="github" src="{{pluResPath}}img/icon/github.png"/>
+    <div class="header">
+        <div class="header-left">
+            <img class="github-icon" src="{{pluResPath}}img/icon/github.png"/>
+            <div class="header-title">
+                <div class="event-type">GitHub Issue</div>
+                <div class="event-action">{{action}}</div>
+            </div>
+        </div>
+        <div class="timestamp">{{time}}</div>
     </div>
-    <div class="general">
-        <div>
-            <img class="repoIcon" src="{{repoAvatar}}" />
-        </div>
-        <div>
-            <h3>{{repoName}}</h3>
-            <h5>{{description}}</h5>
+
+    <div class="repo-info">
+        <img class="repo-avatar" src="{{repoAvatar}}" />
+        <div class="repo-details">
+            <div class="repo-name">{{repoName}}</div>
+            <div class="repo-description">{{description}}</div>
         </div>
     </div>
-    <div class="issue-content">
-        <div class="issue-header">
-            Issue 内容
-        </div>
+
+    <div class="issue-card">
         <div class="issue-title">
-            标题：{{title}} ({{issueUrl}})
+            <svg class="issue-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+                <path d="M8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
+                <path fill-rule="evenodd" d="M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z"></path>
+            </svg>
+            <a href="{{issueUrl}}" class="issue-link">{{title}}</a>
         </div>
-        <div class="issue-author">
-            发起者：@{{user}} <img src="{{userAvatar}}" style="width: 16px">
+
+        <div class="user-info">
+            <img class="user-avatar" src="{{userAvatar}}" />
+            <span class="username">@{{user}}</span>
+            <span class="action-text">{{action}} this issue</span>
         </div>
+
         <div class="issue-body">
-            内容：{{body}}
+            {{body}}
         </div>
-        <div class="issue-action">
-            {{ stateReason }}
+
+        {{ if stateReason}}
+        <div class="issue-state">
+            <svg class="state-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+                <path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path>
+            </svg>
+            <span>{{stateReason}}</span>
         </div>
+        {{/if}}
     </div>
-    <div class="logo">Created By Yunzai-Bot and Github-Plugin</div>
+
+    <div class="footer">
+        <div class="footer-text">Created by Yunzai-Bot and GitHub-Plugin</div>
+    </div>
 </div>
 </body>
-
 </html>

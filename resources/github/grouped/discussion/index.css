@@ -54,13 +54,12 @@ body {
     margin-right: 8px;
 }
 
-.event-action {
+.event-count {
     font-size: 18px;
     padding: 2px 8px;
     border-radius: 20px;
-    background-color: #0366d6;
+    background-color: #6f42c1;
     color: white;
-    text-transform: capitalize;
 }
 
 .timestamp {
@@ -101,95 +100,111 @@ body {
     color: #586069;
 }
 
-/* Push Card */
-.push-card {
+/* Discussions List */
+.discussions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.discussion-item {
     padding: 16px;
     border: 1px solid #e1e4e8;
     border-radius: 6px;
-    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
-.pusher-info {
+.discussion-header {
     display: flex;
     align-items: center;
-    padding-bottom: 16px;
-    border-bottom: 1px solid #eaecef;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
-.pusher-icon {
+.discussion-icon {
     margin-right: 8px;
-    fill: #0366d6;
+    fill: #6f42c1;
 }
 
-.pusher-name {
-    font-weight: 600;
-    color: #0366d6;
-    margin-right: 6px;
-}
-
-.pusher-action {
-    color: #586069;
-}
-
-.commits-container {
-    background-color: #f6f8fa;
-    border: 1px solid #eaecef;
-    border-radius: 6px;
-    overflow: hidden;
-}
-
-.commits-header {
+.discussion-title {
     display: flex;
     align-items: center;
-    padding: 8px 16px;
-    background-color: #f1f8ff;
-    border-bottom: 1px solid #eaecef;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
-.commit-icon {
-    margin-right: 6px;
-    fill: #0366d6;
-}
-
-.commits-title {
+.discussion-link {
+    font-size: 16px;
     font-weight: 600;
-    color: #24292e;
+    color: #0366d6;
+    text-decoration: none;
 }
 
-.commits-list {
-    list-style-type: none;
+.discussion-link:hover {
+    text-decoration: underline;
 }
 
-.commit-item {
-    padding: 12px 16px;
-    border-bottom: 1px solid #eaecef;
-}
-
-.commit-item:last-child {
-    border-bottom: none;
-}
-
-.commit-details {
-    display: flex;
-    flex-direction: column;
-}
-
-.commit-message {
-    font-weight: 600;
-    color: #24292e;
-    margin-bottom: 4px;
-    overflow-wrap: break-word;
-    word-break: break-word;
-}
-
-.commit-author {
+.action-badge {
+    padding: 2px 8px;
+    border-radius: 12px;
     font-size: 12px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.created {
+    background-color: #6f42c1;
+    color: white;
+}
+
+.answered {
+    background-color: #28a745;
+    color: white;
+}
+
+.discussion-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.category-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    background-color: #f1f8ff;
+    color: #0366d6;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.discussion-meta {
+    display: flex;
+    align-items: center;
     color: #586069;
 }
 
-.author-name {
+.user-avatar {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.username {
+    font-weight: 600;
     color: #0366d6;
+}
+
+.discussion-snippet {
+    font-size: 14px;
+    color: #586069;
+    padding: 12px;
+    background-color: #f6f8fa;
+    border-radius: 6px;
+    border-left: 3px solid #6f42c1;
 }
 
 /* Footer */

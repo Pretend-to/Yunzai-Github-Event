@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="{{pluResPath}}github/grouped/project/index.css" />
+    <link rel="shortcut icon" href="#" />
+</head>
+{{@headStyle}}
+
+<body>
+<div class="container" id="container">
+    <div class="header">
+        <div class="header-left">
+            <img class="github-icon" src="{{pluResPath}}img/icon/github.png"/>
+            <div class="header-title">
+                <div class="event-type">GitHub Projects</div>
+                <div class="event-count">{{count}} updates</div>
+            </div>
+        </div>
+        <div class="timestamp">{{time}}</div>
+    </div>
+
+    <div class="repo-info">
+        <img class="repo-avatar" src="{{events[0].repoAvatar}}" />
+        <div class="repo-details">
+            <div class="repo-name">{{repoName}}</div>
+            <div class="repo-description">{{events[0].description}}</div>
+        </div>
+    </div>
+
+    <div class="projects-list">
+        {{each events event}}
+        <div class="project-item">
+            <div class="project-header">
+                <svg class="project-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M1.75 0A1.75 1.75 0 000 1.75v12.5C0 15.216.784 16 1.75 16h12.5A1.75 1.75 0 0016 14.25V1.75A1.75 1.75 0 0014.25 0H1.75zM1.5 1.75a.25.25 0 01.25-.25h12.5a.25.25 0 01.25.25v12.5a.25.25 0 01-.25.25H1.75a.25.25 0 01-.25-.25V1.75zM11.75 3a.75.75 0 00-.75.75v7.5a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75zm-8.25.75a.75.75 0 011.5 0v5.5a.75.75 0 01-1.5 0v-5.5zM8 3a.75.75 0 00-.75.75v3.5a.75.75 0 001.5 0v-3.5A.75.75 0 008 3z"></path>
+                </svg>
+                <div class="project-title">
+                    <a href="{{event.projectUrl}}" class="project-link">{{event.projectName}}</a>
+                </div>
+                <div class="action-badge {{event.action}}">{{event.action}}</div>
+            </div>
+
+            <div class="project-meta">
+                <img src="{{event.userAvatar}}" class="user-avatar" />
+                <span><span class="username">@{{event.user}}</span> {{event.actionDescription}}</span>
+            </div>
+
+            {{ if event.cardMoved }}
+            <div class="card-move-info">
+                <div class="card-title">{{event.cardTitle}}</div>
+                <div class="move-path">
+                    <span class="from-column">{{event.fromColumn}}</span>
+                    <svg class="move-arrow" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M8.22 2.97a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06l2.97-2.97H3.75a.75.75 0 010-1.5h7.44L8.22 4.03a.75.75 0 010-1.06z"></path>
+                    </svg>
+                    <span class="to-column">{{event.toColumn}}</span>
+                </div>
+            </div>
+            {{ /if }}
+        </div>
+        {{/each}}
+    </div>
+
+    <div class="footer">
+        <div class="footer-text">Created by Yunzai-Bot and GitHub-Plugin</div>
+    </div>
+</div>
+</body>
+</html>

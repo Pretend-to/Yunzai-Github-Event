@@ -54,13 +54,12 @@ body {
     margin-right: 8px;
 }
 
-.event-action {
+.event-count {
     font-size: 18px;
     padding: 2px 8px;
     border-radius: 20px;
     background-color: #0366d6;
     color: white;
-    text-transform: capitalize;
 }
 
 .timestamp {
@@ -101,95 +100,78 @@ body {
     color: #586069;
 }
 
-/* Push Card */
-.push-card {
+/* Pushes List */
+.pushes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.push-item {
     padding: 16px;
     border: 1px solid #e1e4e8;
     border-radius: 6px;
-    margin-bottom: 20px;
+    background-color: #fff;
 }
 
 .pusher-info {
     display: flex;
     align-items: center;
-    padding-bottom: 16px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
     border-bottom: 1px solid #eaecef;
-    margin-bottom: 16px;
 }
 
-.pusher-icon {
-    margin-right: 8px;
+.push-icon {
+    margin-right: 6px;
     fill: #0366d6;
 }
 
 .pusher-name {
     font-weight: 600;
     color: #0366d6;
-    margin-right: 6px;
 }
 
-.pusher-action {
-    color: #586069;
+.commits-summary {
+    padding-left: 24px;
 }
 
-.commits-container {
-    background-color: #f6f8fa;
-    border: 1px solid #eaecef;
-    border-radius: 6px;
-    overflow: hidden;
+.commits-summary {
+    padding-left: 24px;
 }
 
-.commits-header {
-    display: flex;
-    align-items: center;
-    padding: 8px 16px;
-    background-color: #f1f8ff;
-    border-bottom: 1px solid #eaecef;
-}
-
-.commit-icon {
-    margin-right: 6px;
-    fill: #0366d6;
-}
-
-.commits-title {
+.commit-count {
     font-weight: 600;
     color: #24292e;
+    margin-bottom: 8px;
 }
 
-.commits-list {
+.commit-list {
     list-style-type: none;
 }
 
 .commit-item {
-    padding: 12px 16px;
-    border-bottom: 1px solid #eaecef;
-}
-
-.commit-item:last-child {
-    border-bottom: none;
-}
-
-.commit-details {
-    display: flex;
-    flex-direction: column;
-}
-
-.commit-message {
-    font-weight: 600;
-    color: #24292e;
-    margin-bottom: 4px;
-    overflow-wrap: break-word;
-    word-break: break-word;
+    font-size: 14px;
+    margin-bottom: 6px;
+    padding-left: 12px;
+    border-left: 2px solid #0366d6;
 }
 
 .commit-author {
-    font-size: 12px;
+    font-weight: 600;
+    color: #24292e;
+    margin-right: 4px;
+}
+
+.commit-message {
     color: #586069;
 }
 
-.author-name {
-    color: #0366d6;
+.more-commits {
+    font-size: 13px;
+    color: #6a737d;
+    font-style: italic;
+    margin-top: 6px;
 }
 
 /* Footer */

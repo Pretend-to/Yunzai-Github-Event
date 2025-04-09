@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="{{pluResPath}}github/grouped/issue_comment/index.css" />
+    <link rel="shortcut icon" href="#" />
+</head>
+{{@headStyle}}
+
+<body>
+<div class="container" id="container">
+    <div class="header">
+        <div class="header-left">
+            <img class="github-icon" src="{{pluResPath}}img/icon/github.png"/>
+            <div class="header-title">
+                <div class="event-type">GitHub Comments</div>
+                <div class="event-count">{{count}} new comments</div>
+            </div>
+        </div>
+        <div class="timestamp">{{time}}</div>
+    </div>
+
+    <div class="repo-info">
+        <img class="repo-avatar" src="{{events[0].repoAvatar}}" />
+        <div class="repo-details">
+            <div class="repo-name">{{repoName}}</div>
+            <div class="repo-description">{{events[0].description}}</div>
+        </div>
+    </div>
+
+    <div class="comments-list">
+        {{each events event}}
+        <div class="comment-item">
+            <div class="comment-header">
+                <svg class="comment-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+                    {{ if event.isPullRequest }}
+                    <path fill-rule="evenodd" d="M7.177 3.073L9.573.677A.25.25 0 0110 .854v4.792a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zM11 2.5h-1V4h1a1 1 0 011 1v5.628a2.251 2.251 0 101.5 0V5A2.5 2.5 0 0011 2.5zm1 10.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0zM3.75 12a.75.75 0 100 1.5.75.75 0 000-1.5z"></path>
+                    {{ else }}
+                    <path d="M8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
+                    <path fill-rule="evenodd" d="M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z"></path>
+                    {{ /if }}
+                </svg>
+                <a href="{{event.issueUrl}}" class="issue-link">{{event.issueTitle}}</a>
+            </div>
+            <div class="comment-meta">
+                <img class="user-avatar" src="{{event.userAvatar}}" />
+                <span class="username">@{{event.user}}</span>
+                <a href="{{event.commentUrl}}" class="comment-link">commented</a>
+            </div>
+            <div class="comment-snippet">
+                {{event.commentBody.substring(0, 100)}}{{event.commentBody.length > 100 ? '...' : ''}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+    <div class="footer">
+        <div class="footer-text">Created by Yunzai-Bot and GitHub-Plugin</div>
+    </div>
+</div>
+</body>
+</html>

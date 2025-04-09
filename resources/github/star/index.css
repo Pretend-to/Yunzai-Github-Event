@@ -58,9 +58,8 @@ body {
     font-size: 18px;
     padding: 2px 8px;
     border-radius: 20px;
-    background-color: #0366d6;
-    color: white;
-    text-transform: capitalize;
+    background-color: #ffcc33;
+    color: #24292e;
 }
 
 .timestamp {
@@ -101,95 +100,83 @@ body {
     color: #586069;
 }
 
-/* Push Card */
-.push-card {
-    padding: 16px;
+/* Star Card */
+.star-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 16px;
     border: 1px solid #e1e4e8;
     border-radius: 6px;
     margin-bottom: 20px;
+    background: linear-gradient(180deg, #ffffff 0%, #fffdf7 100%);
 }
 
-.pusher-info {
-    display: flex;
-    align-items: center;
-    padding-bottom: 16px;
-    border-bottom: 1px solid #eaecef;
+.star-animation {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.star-icon {
+    fill: #ffcc33;
+    filter: drop-shadow(0 0 5px rgba(255, 190, 0, 0.5));
+    animation: star-pulse 1.5s infinite alternate;
+}
+
+@keyframes star-pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.star-info {
+    text-align: center;
+}
+
+.star-message {
+    font-size: 18px;
+    font-weight: 600;
+    color: #24292e;
     margin-bottom: 16px;
 }
 
-.pusher-icon {
-    margin-right: 8px;
-    fill: #0366d6;
-}
-
-.pusher-name {
-    font-weight: 600;
-    color: #0366d6;
-    margin-right: 6px;
-}
-
-.pusher-action {
-    color: #586069;
-}
-
-.commits-container {
-    background-color: #f6f8fa;
-    border: 1px solid #eaecef;
-    border-radius: 6px;
-    overflow: hidden;
-}
-
-.commits-header {
+.user-info {
     display: flex;
     align-items: center;
-    padding: 8px 16px;
-    background-color: #f1f8ff;
-    border-bottom: 1px solid #eaecef;
-}
-
-.commit-icon {
-    margin-right: 6px;
-    fill: #0366d6;
-}
-
-.commits-title {
-    font-weight: 600;
-    color: #24292e;
-}
-
-.commits-list {
-    list-style-type: none;
-}
-
-.commit-item {
+    justify-content: center;
+    background-color: #fffbea;
     padding: 12px 16px;
-    border-bottom: 1px solid #eaecef;
+    border-radius: 8px;
+    border: 1px solid #f1e7c0;
+    box-shadow: 0 2px 4px rgba(255, 204, 51, 0.1);
 }
 
-.commit-item:last-child {
-    border-bottom: none;
+.user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin-right: 12px;
+    border: 2px solid #ffcc33;
 }
 
-.commit-details {
-    display: flex;
-    flex-direction: column;
+.user-details {
+    text-align: left;
 }
 
-.commit-message {
+.username {
     font-weight: 600;
-    color: #24292e;
-    margin-bottom: 4px;
-    overflow-wrap: break-word;
-    word-break: break-word;
-}
-
-.commit-author {
-    font-size: 12px;
-    color: #586069;
-}
-
-.author-name {
     color: #0366d6;
+    margin-bottom: 4px;
+}
+
+.starred-time {
+    font-size: 14px;
+    color: #586069;
 }
 
 /* Footer */

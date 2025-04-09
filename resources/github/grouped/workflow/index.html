@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="{{pluResPath}}github/grouped/workflow/index.css" />
+    <link rel="shortcut icon" href="#" />
+</head>
+{{@headStyle}}
+
+<body>
+<div class="container" id="container">
+    <div class="header">
+        <div class="header-left">
+            <img class="github-icon" src="{{pluResPath}}img/icon/github.png"/>
+            <div class="header-title">
+                <div class="event-type">GitHub Workflows</div>
+                <div class="event-count">{{count}} updates</div>
+            </div>
+        </div>
+        <div class="timestamp">{{time}}</div>
+    </div>
+
+    <div class="repo-info">
+        <img class="repo-avatar" src="{{events[0].repoAvatar}}" />
+        <div class="repo-details">
+            <div class="repo-name">{{repoName}}</div>
+            <div class="repo-description">{{events[0].description}}</div>
+        </div>
+    </div>
+
+    <div class="workflows-list">
+        {{each events event}}
+        <div class="workflow-item">
+            <div class="workflow-status {{event.conclusion}}">
+                {{ if event.conclusion === 'success' }}
+                <svg class="status-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path>
+                </svg>
+                {{ else if event.conclusion === 'failure' }}
+                <svg class="status-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path>
+                </svg>
+                {{ else }}
+                <svg class="status-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M8 16A8 8 0 108 0a8 8 0 000 16zm.847-8.145a2.502 2.502 0 10-1.694 0C5.471 8.261 4.25 9.775 4.25 11.5c0 .19.154.344.344.344h6.812a.344.344 0 00.344-.344c0-1.725-1.221-3.239-2.903-3.645z"></path>
+                </svg>
+                {{ /if }}
+                <span class="workflow-name">{{event.workflowName}}</span>
+                <div class="status-badge {{event.conclusion}}">{{event.conclusion}}</div>
+            </div>
+
+            <div class="workflow-details">
+                <div class="detail-row">
+                    <div class="detail-label">Branch:</div>
+                    <div class="detail-value">{{event.branch}}</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Run ID:</div>
+                    <div class="detail-value">{{event.runId}}</div>
+                </div>
+            </div>
+
+            <div class="workflow-footer">
+                <a href="{{event.url}}" class="view-workflow">View Run</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+    <div class="footer">
+        <div class="footer-text">Created by Yunzai-Bot and GitHub-Plugin</div>
+    </div>
+</div>
+</body>
+</html>

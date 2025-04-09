@@ -54,13 +54,12 @@ body {
     margin-right: 8px;
 }
 
-.event-action {
+.event-count {
     font-size: 18px;
     padding: 2px 8px;
     border-radius: 20px;
-    background-color: #0366d6;
+    background-color: #6f42c1;
     color: white;
-    text-transform: capitalize;
 }
 
 .timestamp {
@@ -101,95 +100,88 @@ body {
     color: #586069;
 }
 
-/* Push Card */
-.push-card {
+/* Pull Requests List */
+.prs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pr-item {
     padding: 16px;
     border: 1px solid #e1e4e8;
     border-radius: 6px;
-    margin-bottom: 20px;
+    background-color: #fff;
 }
 
-.pusher-info {
+.pr-header {
     display: flex;
     align-items: center;
-    padding-bottom: 16px;
-    border-bottom: 1px solid #eaecef;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
-.pusher-icon {
+.pr-icon {
+    margin-right: 6px;
+    fill: #6f42c1;
+}
+
+.pr-link {
+    flex: 1;
+    font-weight: 600;
+    font-size: 16px;
+    color: #0366d6;
+    text-decoration: none;
     margin-right: 8px;
-    fill: #0366d6;
 }
 
-.pusher-name {
-    font-weight: 600;
-    color: #0366d6;
-    margin-right: 6px;
+.pr-link:hover {
+    text-decoration: underline;
 }
 
-.pusher-action {
-    color: #586069;
+.action-badge {
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: capitalize;
 }
 
-.commits-container {
-    background-color: #f6f8fa;
-    border: 1px solid #eaecef;
-    border-radius: 6px;
-    overflow: hidden;
+.opened, .reopened {
+    background-color: #6f42c1;
+    color: white;
 }
 
-.commits-header {
+.closed {
+    background-color: #cb2431;
+    color: white;
+}
+
+.merged {
+    background-color: #6f42c1;
+    color: white;
+}
+
+.pr-meta {
     display: flex;
     align-items: center;
-    padding: 8px 16px;
-    background-color: #f1f8ff;
-    border-bottom: 1px solid #eaecef;
 }
 
-.commit-icon {
+.user-avatar {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
     margin-right: 6px;
-    fill: #0366d6;
 }
 
-.commits-title {
-    font-weight: 600;
-    color: #24292e;
-}
-
-.commits-list {
-    list-style-type: none;
-}
-
-.commit-item {
-    padding: 12px 16px;
-    border-bottom: 1px solid #eaecef;
-}
-
-.commit-item:last-child {
-    border-bottom: none;
-}
-
-.commit-details {
-    display: flex;
-    flex-direction: column;
-}
-
-.commit-message {
-    font-weight: 600;
-    color: #24292e;
-    margin-bottom: 4px;
-    overflow-wrap: break-word;
-    word-break: break-word;
-}
-
-.commit-author {
-    font-size: 12px;
-    color: #586069;
-}
-
-.author-name {
+.username {
+    font-weight: 500;
     color: #0366d6;
+    margin-right: 8px;
+}
+
+.merged-info {
+    font-size: 12px;
+    color: #6f42c1;
 }
 
 /* Footer */
