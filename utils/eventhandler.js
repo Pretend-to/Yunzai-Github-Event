@@ -28,11 +28,11 @@ async function handleEvent (payload, event, config) {
     return
   }
 
-  // Check if we should send a notification
-  if (!shouldSendNotification(event, payload, config)) {
-    logger.info(`Skipping notification for ${event} due to anti-spam rules.`)
-    return
-  }
+  // // Check if we should send a notification
+  // if (!shouldSendNotification(event, payload, config)) {
+  //   logger.info(`Skipping notification for ${event} due to anti-spam rules.`)
+  //   return
+  // }
 
   const targetGroups = getGroupsForRepo(repoName, config)
   let time = formatDate(new Date())
